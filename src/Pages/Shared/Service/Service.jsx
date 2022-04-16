@@ -3,7 +3,10 @@ import { Col, Container, Row } from "react-bootstrap";
 import "./Service.css";
 // import AuthorImg from "../../../Assets/Images/ceo-img.jpg";
 import { FaBalanceScale } from "react-icons/fa";
-import {MdOutlineFamilyRestroom} from 'react-icons/md';
+import {MdOutlineFamilyRestroom, MdPersonalInjury, MdAddBusiness,  MdCastForEducation} from 'react-icons/md';
+import {GiThink} from 'react-icons/gi';
+import {SiHomeassistantcommunitystore} from 'react-icons/si';
+
 
 const Service = () => {
   return (
@@ -30,8 +33,8 @@ const Service = () => {
             <div className="right-column">
 
               <div className="section-title-s2 d-flex">
-                <div className="icon">
-                  <FaBalanceScale />
+                <div className="icon-div">
+                  <FaBalanceScale className="react-icon" />
                 </div>
                 <div className="icons-side-info">
                   <span>What we are expert at</span>
@@ -56,13 +59,13 @@ const Service = () => {
                   </p>
                 </div>
                 </div>
-                
+
                 <div className="service-box">
                   <div className="icon">
-                    <MdOutlineFamilyRestroom/>
+                    <MdPersonalInjury/>
                   </div>
                   <div className="icons-side-info">
-                  <h2>Family Law</h2>
+                  <h2>Personal Injury</h2>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quae!
                   </p>
@@ -71,10 +74,10 @@ const Service = () => {
 
                 <div className="service-box">
                   <div className="icon">
-                    <MdOutlineFamilyRestroom/>
+                    <GiThink/>
                   </div>
                   <div className="icons-side-info">
-                  <h2>Family Law</h2>
+                  <h2>Criminal Law</h2>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quae!
                   </p>
@@ -83,10 +86,34 @@ const Service = () => {
 
                 <div className="service-box">
                   <div className="icon">
-                    <MdOutlineFamilyRestroom/>
+                    <MdCastForEducation/>
                   </div>
                   <div className="icons-side-info">
-                  <h2>Family Law</h2>
+                  <h2>Education Law</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quae!
+                  </p>
+                </div>
+                </div>
+
+                <div className="service-box">
+                  <div className="icon">
+                    <SiHomeassistantcommunitystore/>
+                  </div>
+                  <div className="icons-side-info">
+                  <h2>Real Estate Law</h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quae!
+                  </p>
+                </div>
+                </div>
+
+                <div className="service-box">
+                  <div className="icon">
+                    <MdAddBusiness/>
+                  </div>
+                  <div className="icons-side-info">
+                  <h2>Business Law</h2>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quae!
                   </p>
