@@ -9,3 +9,4 @@
 4. React Bootstrap
 5. Swiper JS
 6. Google Font
+7. React Icon
