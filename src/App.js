@@ -8,6 +8,7 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import Blog from './Pages/Blog/Blog';
 import Checkout from './Pages/Checkout/Checkout';
+import Footer from './Pages/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path='/blog' element={<Blog/>}></Route>
       <Route path='/checkout' element={<Checkout/>}></Route>
     </Routes>
+    <Footer/>
 
     </>
   );
