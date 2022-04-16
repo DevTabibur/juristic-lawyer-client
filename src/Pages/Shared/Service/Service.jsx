@@ -15,7 +15,7 @@ const Service = () => {
         <Row>
           <Col md={5} className="m-0 p-0">
             <div className="left-column">
-              {/* <img src={AuthorImg} alt="author__img" /> */}
+              
               <div className="inner-content">
                 <h4>
                   “ It showed a lady fitted out with a fur hat and fur boa who
@@ -37,7 +37,7 @@ const Service = () => {
                   <FaBalanceScale className="react-icon" />
                 </div>
                 <div className="icons-side-info">
-                  <span>What we are expert at</span>
+                  <span>What I'm  expert at</span>
                   <h2>Legal Practice Areas</h2>
                   <p>
                     Maecenas tempus, tellus eget condimentum rhoncus, sem quam
@@ -46,81 +46,7 @@ const Service = () => {
                   </p>
                 </div>
               </div>
-              <div className="service-boxes">
-
-                <div className="service-box">
-                  <div className="icon">
-                    <MdOutlineFamilyRestroom/>
-                  </div>
-                  <div className="icons-side-info">
-                  <h2>Family Law</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quae!
-                  </p>
-                </div>
-                </div>
-
-                <div className="service-box">
-                  <div className="icon">
-                    <MdPersonalInjury/>
-                  </div>
-                  <div className="icons-side-info">
-                  <h2>Personal Injury</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quae!
-                  </p>
-                </div>
-                </div>
-
-                <div className="service-box">
-                  <div className="icon">
-                    <GiThink/>
-                  </div>
-                  <div className="icons-side-info">
-                  <h2>Criminal Law</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quae!
-                  </p>
-                </div>
-                </div>
-
-                <div className="service-box">
-                  <div className="icon">
-                    <MdCastForEducation/>
-                  </div>
-                  <div className="icons-side-info">
-                  <h2>Education Law</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quae!
-                  </p>
-                </div>
-                </div>
-
-                <div className="service-box">
-                  <div className="icon">
-                    <SiHomeassistantcommunitystore/>
-                  </div>
-                  <div className="icons-side-info">
-                  <h2>Real Estate Law</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quae!
-                  </p>
-                </div>
-                </div>
-
-                <div className="service-box">
-                  <div className="icon">
-                    <MdAddBusiness/>
-                  </div>
-                  <div className="icons-side-info">
-                  <h2>Business Law</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, quae!
-                  </p>
-                </div>
-                </div>
-
-              </div>
+              
             </div>
           </Col>
         </Row>

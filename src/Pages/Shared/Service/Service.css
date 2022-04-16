@@ -5,7 +5,10 @@
     padding: 90px;
     position: relative;
     display: table;
-    height: 1233px;
+    border-radius: 10px 0px 0px 10px;
+    height: 410px;
+
+
 }
 .service-section .left-column:before {
     content: "";
@@ -16,6 +19,8 @@
     position: absolute;
     left: 0;
     top: 0;
+    border-radius: 10px 0px 0px 10px;
+
 }
 .service-section .left-column .inner-content {
     display: table-cell;
@@ -23,27 +28,32 @@
     position: relative;
 }
 .service-section .left-column .inner-content h4 {
-    font-family: "Muli", sans-serif;
-    font-size: 16px;
-    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
     font-weight: 700;
     color: #fff;
     margin: 1.5em 0 0.3em;
 }
 .service-section .left-column .inner-content h3{
+    font-family: 'Roboto Slab', serif;
+    font-size: 30px;
     color: #fff;
     margin-top: 40px;
     margin-bottom: -10px;
 }
 .service-section .left-column .inner-content p{
     color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    margin-top: -10px;
 }
 .service-section .right-column {
-    height: 1233px;
+    height: 410px;
     margin: 0;
     background-color: #262b3e;
     max-width: 100%;
     padding: 110px 120px 44px 60px;
+    border-radius: 0 10px 10px 0px;
 }
 .section-title-s2{
     margin-bottom: 30px;
@@ -87,8 +97,23 @@
 }
 
 
-
+/* 
 .service-boxes{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+.service-boxes .service-box{
+    padding-left: 80px;
+    
+}
+.service-boxes .service-box .icon-div{}
+.service-boxes .service-box .icon-div .react-icon{
+    background-color: #c8b38b;
+    color: #fff;
+    height: 60px;
+    width: 60px;
+    padding: 8px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    font-size: 12px;
+} */
