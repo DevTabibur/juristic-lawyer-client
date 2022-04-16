@@ -33,7 +33,7 @@ const HeroBanner = () => {
           delay: 2000,
           disableOnInteraction: false,
         }}
-        className="mySwiper"
+        className="mySwiper pb-5"
       >
         <SwiperSlide className="swiper-slider-parent">
             <img src={Slider1} alt="Slider1" />
