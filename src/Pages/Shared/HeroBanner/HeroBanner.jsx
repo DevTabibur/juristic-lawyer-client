@@ -13,44 +13,36 @@ import SwiperCore from "swiper";
 
 // Import Swiper styles
 import 'swiper/css';
+import Slider1 from '../../../Assets/Images/slide-1.jpg'
+import Slider2 from '../../../Assets/Images/slide-2.jpg'
+import Slider3 from '../../../Assets/Images/slide-3.jpg'
+import Slider4 from '../../../Assets/Images/slide-4.jpg'
 
 const HeroBanner = () => {
   SwiperCore.use([Autoplay]);
 
-  const [banner, setBanner] = useState([]);
-  useEffect(() => {
-    fetch("slider-db.json")
-      .then((res) => res.json())
-      .then((data) => setBanner(data));
-  }, []);
-  const handleReadMoreBtn = () => {
-    alert();
-  };
+ 
   return (
     <>
       <Swiper
         modules={[Autoplay]}
-        slidesPerView={4}
-        spaceBetween={8}
-        loop={true}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
+        slidesPerView={1}
+        // spaceBetween={8}
+        // loop={true}
+        // autoplay={{
+        //   delay: 2000,
+        //   disableOnInteraction: false,
+        // }}
         className="mySwiper"
       >
-        {banner.map((item) => (
-          <SwiperSlide key={item.id} className="swiper-slider-parent">
-            <img src={item.image} alt="item__img" />
+        <SwiperSlide className="swiper-slider-parent">
+            <img src={Slider1} alt="Slider1" />
             <div className="slider-inner-info">
-              <h4>{item.category}</h4>
-              <h4>{item.title}</h4>
-              <button className="slider-read-btn" onClick={handleReadMoreBtn}>
-                READ MORE
-              </button>
+                <h1 className="mb-3">Our Independence Make the Difference</h1>
+                <h4 className="mb-3">NATIONALLY ESTABLISHED. INTERNATIONALLY RECOGNIZED</h4>
+                <button className="slider-read-btn">FREE CONSULTATION</button>
             </div>
-          </SwiperSlide>
-        ))}
+        </SwiperSlide>
       </Swiper>
     </>
   );

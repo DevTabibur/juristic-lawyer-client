@@ -8,7 +8,6 @@ import HeroBanner from '../Shared/HeroBanner/HeroBanner';
 const Home = () => {
   return (
     <>
-    <h1>Hero Banner</h1>
       <HeroBanner/>
     </>
   )

@@ -8,3 +8,4 @@
 3. Firebase
 4. React Bootstrap
 5. Swiper JS
+6. Google Font
