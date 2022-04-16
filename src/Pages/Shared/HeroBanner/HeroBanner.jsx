@@ -28,11 +28,11 @@ const HeroBanner = () => {
         modules={[Autoplay]}
         slidesPerView={1}
         // spaceBetween={8}
-        // loop={true}
-        // autoplay={{
-        //   delay: 2000,
-        //   disableOnInteraction: false,
-        // }}
+        loop={true}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
         className="mySwiper"
       >
         <SwiperSlide className="swiper-slider-parent">
@@ -43,6 +43,39 @@ const HeroBanner = () => {
                 <button className="slider-read-btn">FREE CONSULTATION</button>
             </div>
         </SwiperSlide>
+        <SwiperSlide className="swiper-slider-parent">
+            <img src={Slider1} alt="Slider1" />
+            <div className="slider-inner-info">
+                <h1 className="mb-3">Our Independence Make the Difference</h1>
+                <h4 className="mb-3">NATIONALLY ESTABLISHED. INTERNATIONALLY RECOGNIZED</h4>
+                <button className="slider-read-btn">FREE CONSULTATION</button>
+            </div>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-slider-parent">
+            <img src={Slider2} alt="Slider1" />
+            <div className="slider-inner-info">
+                <h1 className="mb-3">Our Independence Make the Difference</h1>
+                <h4 className="mb-3">NATIONALLY ESTABLISHED. INTERNATIONALLY RECOGNIZED</h4>
+                <button className="slider-read-btn">FREE CONSULTATION</button>
+            </div>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-slider-parent">
+            <img src={Slider3} alt="Slider1" />
+            <div className="slider-inner-info">
+                <h1 className="mb-3">Our Independence Make the Difference</h1>
+                <h4 className="mb-3">NATIONALLY ESTABLISHED. INTERNATIONALLY RECOGNIZED</h4>
+                <button className="slider-read-btn">FREE CONSULTATION</button>
+            </div>
+        </SwiperSlide>
+        <SwiperSlide className="swiper-slider-parent">
+            <img src={Slider4} alt="Slider1" />
+            <div className="slider-inner-info">
+                <h1 className="mb-3">Our Independence Make the Difference</h1>
+                <h4 className="mb-3">NATIONALLY ESTABLISHED. INTERNATIONALLY RECOGNIZED</h4>
+                <button className="slider-read-btn">FREE CONSULTATION</button>
+            </div>
+        </SwiperSlide>
+
       </Swiper>
     </>
   );

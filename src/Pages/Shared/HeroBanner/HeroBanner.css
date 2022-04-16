@@ -55,7 +55,7 @@
   font-size: 18px;
   margin: 15px 0;
   font-family: "Montserrat", sans-serif;
-
+text-transform: lowercase;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -76,3 +76,10 @@
   color: #c8b38b;
   border: 1px solid #000;
 }
+
+/* media query responsive */
+@media only screen and (max-width: 425px) {
+    .slider-inner-info h1{
+        font-size: 20px;
+    }
+  }
