@@ -8,3 +8,9 @@
     width: 100%;
     height: 100%;
 }
+.navbar-dark .navbar-nav .nav-link {
+    /* color: rgba(255,255,255,.55); */
+}
+.header .menu-link{
+    color: #c8b38b;
+}
