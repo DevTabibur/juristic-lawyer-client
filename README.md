@@ -10,3 +10,5 @@
 5. Swiper JS
 6. Google Font
 7. React Icon
+8. Protected Route
+9. React Firebase Hooks (Library)
