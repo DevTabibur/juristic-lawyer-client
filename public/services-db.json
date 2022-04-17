@@ -1,18 +1,23 @@
 [
     {
         "id": 1,
-        "icon" : "<GiSkills/>",
-        "title": "Skilled Attorneys",
-        "description" : "lorem20"
+        "title": "Criminal Law",
+        "price": 500,
+        "description" : "lorem20",
+        "image" : "https://www.hjmattes.com/wp-content/uploads/2020/04/criminal-law.jpg"
     },
     {
         "id": 2,
-        "title": "Legal Defence",
-        "description" : "lorem20"
+        "title": "Personal Injury",
+        "price": 300,
+        "description" : "lorem20",
+        "image":"https://cdn.pixabay.com/photo/2015/10/22/06/56/lawyers-1000803_960_720.jpg"
     },
     {
         "id": 3,
-        "title": "99% case win",
-        "description" : "lorem20"
+        "title": "Family Law",
+        "price": 150,
+        "description" : "lorem20",
+        "image":"https://diazlf.com/wp-content/uploads/elementor/thumbs/child-custody-1-pjpw8x7guupppqaaqqqabtop67byx2yns341m6kdrs.webp"
     }
 ]
