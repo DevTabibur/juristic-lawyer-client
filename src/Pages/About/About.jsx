@@ -28,7 +28,7 @@ const About = () => {
                     <GoHome className='go-home-icon'/>
                   </div>
                   <span>About Juristic</span>
-                  <h2>We Are The Most Popular Law Firm With Various Law Services!</h2>
+                  <h2>I'm The Most Popular Lawyer With Various Law Services!</h2>
                   <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum</p>
                 </div>
               </div>

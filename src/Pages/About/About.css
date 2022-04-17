@@ -1,17 +1,9 @@
-.section-title,
-.section-title-s2,
-.section-title-s3,
-.section-title-s6,
-.section-title-s4 {
+.section-title {
   padding-left: 85px;
   margin-bottom: 0;
   position: relative;
 }
-.section-title .icon,
-.section-title-s2 .icon,
-.section-title-s3 .icon,
-.section-title-s6 .icon,
-.section-title-s4 .icon {
+.section-title .icon {
   background-color: #c9b38c;
   width: 50px;
   height: 50px;
@@ -23,12 +15,13 @@
   position: absolute;
   left: 5px;
   top: 7px;
+}.section-title .icon .go-home-icon{
+    color: #fff;
+    font-size: 30px;
 }
-.section-title > span,
-.section-title-s2 > span,
-.section-title-s3 > span,
-.section-title-s6 > span,
-.section-title-s4 > span {
+.section-title > span{
+    font-family: 'Montserrat', sans-serif;
+
   font-size: 14px;
   font-size: 0.875rem;
   font-weight: 700;
@@ -38,11 +31,9 @@
   margin-bottom: 0.5em;
   margin-top: -0.3em;
 }
-.section-title h2,
-.section-title-s2 h2,
-.section-title-s3 h2,
-.section-title-s6 h2,
-.section-title-s4 h2 {
+.section-title h2{
+    font-family: 'Roboto Slab', serif;
+    color: #262b3e;
   font-size: 36px;
   font-size: 2.25rem;
   margin: 0 0 0.69em;
@@ -50,11 +41,9 @@
   position: relative;
   text-transform: capitalize;
 }
-.section-title p,
-.section-title-s2 p,
-.section-title-s3 p,
-.section-title-s6 p,
-.section-title-s4 p {
+.section-title p{
+    font-family: 'Montserrat', sans-serif;
+
   margin-bottom: 1.5em;
 }
 .about-section .mid-col{
@@ -67,21 +56,28 @@
     width: 355px;
     width: 100%;
 }
-.about-section .right-col,
-.about-section-s3 .right-col {
+.about-section .right-col {
   padding-top: 35px;
 }
+.about-section .right-col p{
+    color: #687693;
+    line-height: 1.7em;
+}
 
-.about-section .quoter, .about-section-s3 .quoter {
+.about-section .quoter{
     padding: 20px 0;
 }
-.about-section .quoter h4, .about-section-s3 .quoter h4 {
+.about-section .quoter h4 {
+    font-family: 'Poppins', sans-serif;
+
     font-size: 18pc;
     font-size: 1.125rem;
     font-weight: 400;
     margin: 0 0 0.3em;
 }
-.about-section .quoter span, .about-section-s3 .quoter span {
+.about-section .quoter span {
+    font-family: 'Montserrat', sans-serif;
+
     font-size: 13px;
     font-size: 0.8125rem;
 }
