@@ -1,0 +1,87 @@
+.section-title,
+.section-title-s2,
+.section-title-s3,
+.section-title-s6,
+.section-title-s4 {
+  padding-left: 85px;
+  margin-bottom: 0;
+  position: relative;
+}
+.section-title .icon,
+.section-title-s2 .icon,
+.section-title-s3 .icon,
+.section-title-s6 .icon,
+.section-title-s4 .icon {
+  background-color: #c9b38c;
+  width: 50px;
+  height: 50px;
+  line-height: 48px;
+  -webkit-box-shadow: 0 0 0 5px rgba(201, 179, 140, 0.2);
+  box-shadow: 0 0 0 5px rgba(201, 179, 140, 0.2);
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  left: 5px;
+  top: 7px;
+}
+.section-title > span,
+.section-title-s2 > span,
+.section-title-s3 > span,
+.section-title-s6 > span,
+.section-title-s4 > span {
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #c9b38c;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5em;
+  margin-top: -0.3em;
+}
+.section-title h2,
+.section-title-s2 h2,
+.section-title-s3 h2,
+.section-title-s6 h2,
+.section-title-s4 h2 {
+  font-size: 36px;
+  font-size: 2.25rem;
+  margin: 0 0 0.69em;
+  line-height: 1.19em;
+  position: relative;
+  text-transform: capitalize;
+}
+.section-title p,
+.section-title-s2 p,
+.section-title-s3 p,
+.section-title-s6 p,
+.section-title-s4 p {
+  margin-bottom: 1.5em;
+}
+.about-section .mid-col{
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.about-section .mid-col img {
+    position: relative;
+    width: 355px;
+    width: 100%;
+}
+.about-section .right-col,
+.about-section-s3 .right-col {
+  padding-top: 35px;
+}
+
+.about-section .quoter, .about-section-s3 .quoter {
+    padding: 20px 0;
+}
+.about-section .quoter h4, .about-section-s3 .quoter h4 {
+    font-size: 18pc;
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin: 0 0 0.3em;
+}
+.about-section .quoter span, .about-section-s3 .quoter span {
+    font-size: 13px;
+    font-size: 0.8125rem;
+}
