@@ -9,6 +9,7 @@ import Register from './Pages/Register/Register';
 import Blog from './Pages/Blog/Blog';
 import Checkout from './Pages/Checkout/Checkout';
 import Footer from './Pages/Shared/Footer/Footer';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path='/register' element={<Register/>}></Route>
       <Route path='/blog' element={<Blog/>}></Route>
       <Route path='/checkout' element={<Checkout/>}></Route>
+      <Route path='/*' element={<NotFound/>}></Route>
     </Routes>
     {/* <Footer/> */}
 
