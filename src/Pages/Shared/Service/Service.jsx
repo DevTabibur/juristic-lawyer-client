@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Service.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Service = () => {
   const [services, setServices] = useState([]);
@@ -12,8 +13,8 @@ const Service = () => {
 
   return (
     <>
-      <Container>
-        <Row className="g-4">
+      <Container className="py-5">
+        <Row className="g-5">
           {services.map((service) => (
             <ShowServices key={service.id} service={service} />
           ))}
@@ -24,16 +25,18 @@ const Service = () => {
 };
 
 const ShowServices = ({ service }) => {
+  const navigate = useNavigate();
   return (
     <>
-      <Col md={4}>
-        <div className="service-box shadow">
+      <Col md={4} className="shadow rounded">
+        <div className="service-box">
           <div className="service-box-imgDiv">
             <img src={service.image} alt="service__img" />
           </div>
-          <h4>{service.title}</h4>
+          <h3>{service.title}</h3>
           <h6>Price: ${service.price}</h6>
           <p>{service.description}</p>
+          <button className="check-out-btn" >Check Out</button>
         </div>
       </Col>
     </>
