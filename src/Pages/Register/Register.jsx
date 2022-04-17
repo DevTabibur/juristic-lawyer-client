@@ -67,7 +67,7 @@ const Register = () => {
     }
   };
 
-  const handleLogin = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
     console.log(userInfo);
     createUserWithEmailAndPassword(userInfo.email, userInfo.password);
@@ -119,7 +119,7 @@ const Register = () => {
                   Register <span className="title-2">Form</span>
                 </h2>
 
-                <Form>
+                <Form onSubmit={handleRegister}>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control
