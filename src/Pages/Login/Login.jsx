@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -5,15 +6,24 @@ import "./Login.css";
 import GoogleLogo from "../../Assets/Icons/google (1).svg";
 import auth from "../../Firebase/Firebase.init";
 import {
+  useAuthState,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 
+// for toastify
+
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
 const Login = () => {
+  
   const [signInWithEmailAndPassword, user, loading, hookError] =
     useSignInWithEmailAndPassword(auth);
 
-  const [signInWithGoogle, user2, loading2, googleError] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, googleUser, loading2, googleError] =
+    useSignInWithGoogle(auth);
 
   const [userInfo, setUserInfo] = useState({
     email: "",
@@ -54,43 +64,41 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log("userInfo" , userInfo);
-    signInWithEmailAndPassword(userInfo.email, userInfo.password)
+    signInWithEmailAndPassword(userInfo.email, userInfo.password);
   };
 
   const navigate = useNavigate();
-       const location = useLocation();
-       const from = location.state?.from?.pathname || "/";
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
-       useEffect(() => {
-           if (user) {
-               navigate(from);
-           }
-       }, [user]);
+  useEffect(() => {
+    if (user) {
+      navigate(from);
+    }
+  }, [user]);
 
-       useEffect(() => {
-        const error = hookError || googleError;
-        if(error){
-            switch(error?.code){
-                case "auth/invalid-email":
-                    toast("Invalid email provided, please provide a valid email");
-                    break;
-                
-                case "auth/invalid-password":
-                    toast("Wrong password. Intruder!!")
-                    break;
-                default:
-                    toast("something went wrong")
-            }
-        }
-    }, [hookError, googleError])
+  useEffect(() => {
+    const error = hookError || googleError;
+    if (error) {
+      switch (error?.code) {
+        case "auth/invalid-email":
+          toast("Invalid email provided, please provide a valid email");
+          break;
+
+        case "auth/invalid-password":
+          toast("Wrong password. Intruder!!");
+          break;
+        default:
+          toast("something went wrong");
+      }
+    }
+  }, [hookError, googleError]);
 
 
-
-  const googleAuth = () => {
-    alert();
-  };
-
+  if(googleUser)
+  {
+    navigate("/home")
+  }
 
   return (
     <>
@@ -113,6 +121,7 @@ const Login = () => {
                   Login <span className="title-2">Form</span>
                 </h2>
                 <Form onSubmit={handleLogin}>
+                <ToastContainer/>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
 
@@ -161,13 +170,14 @@ const Login = () => {
                     <span>--------</span>
                   </div>
 
-                  <div className="logo-wrapper w-100">
-                    <button className="google-auth" onClick={googleAuth}>
+                  
+                </Form>
+                <div className="logo-wrapper w-100">
+                    <button className="google-auth" onClick={() => signInWithGoogle()}>
                       <img src={GoogleLogo} alt="google__logo" />
                       <p> Continue with Google </p>
                     </button>
                   </div>
-                </Form>
               </div>
             </Col>
             <Col></Col>
