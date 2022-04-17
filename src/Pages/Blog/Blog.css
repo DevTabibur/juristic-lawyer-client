@@ -1,5 +1,5 @@
 .blog-page{
-    padding: 100px;
+    /* padding: 100px; */
     text-align: center;
     margin: 0 auto;
     position: relative;
@@ -9,7 +9,7 @@
 .blog-page .blog-image{
     margin-top: 20px;
     position: relative;
-    width: 60%;
+    width: 100%;
 }
 .blog-page .blog-image img{
     position: relative;

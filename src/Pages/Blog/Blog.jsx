@@ -41,7 +41,7 @@ const ShowBlog = ({ blog }) => {
   console.log("blog", blog);
   return (
     <>
-      <Col>
+      <Col md={12} sm={12}>
         <div className="blog-image">
           <img src={blog.image} alt="AuthVSAuthentication" />
         </div>
