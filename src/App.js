@@ -23,7 +23,7 @@ function App() {
       <Route path='/blog' element={<Blog/>}></Route>
       <Route path='/checkout' element={<Checkout/>}></Route>
     </Routes>
-    {/* <Footer/> */}
+    <Footer/>
 
     </>
   );

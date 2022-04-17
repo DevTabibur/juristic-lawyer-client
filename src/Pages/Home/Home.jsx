@@ -9,7 +9,7 @@ import Service from '../Shared/Service/Service';
 const Home = () => {
   return (
     <>
-      {/* <HeroBanner/> */}
+      <HeroBanner/>
       <Service/>
     </>
   )

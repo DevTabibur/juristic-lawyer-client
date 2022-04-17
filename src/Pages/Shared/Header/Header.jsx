@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="header ">
-      <Navbar className="py-2 shadow" collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <div className="header">
+      <Navbar  className="py-2 shadow" collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
 
           <Navbar.Brand href="/home">
