@@ -10,7 +10,8 @@ import {SiHomeassistantcommunitystore} from 'react-icons/si';
 
 const Service = () => {
   return (
-    <div className="service-section py-4">
+    <>
+      <div className="service-section py-4">
       <Container>
         <Row>
           <Col md={5} className="m-0 p-0">
@@ -52,6 +53,18 @@ const Service = () => {
         </Row>
       </Container>
     </div>
+
+    <div className="service-bottom-section">
+      <Container>
+        <Row>
+          <Col>11</Col>
+          <Col>22</Col>
+          <Col>33</Col>
+          <Col>44</Col>
+        </Row>
+      </Container>
+    </div>
+    </>
   );
 };
 
