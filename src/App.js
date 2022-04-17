@@ -14,7 +14,7 @@ import NotFound from './Pages/NotFound/NotFound';
 function App() {
   return (
     <>
-    <Header/>
+    {/* <Header/> */}
     <Routes>
       <Route path='/' element={<Home/>}></Route>
       <Route path='/home' element={<Home/>}></Route>

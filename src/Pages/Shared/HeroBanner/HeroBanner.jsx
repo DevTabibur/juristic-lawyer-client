@@ -25,12 +25,13 @@ const HeroBanner = () => {
   return (
     <>
       <Swiper
+      
         modules={[Autoplay]}
         slidesPerView={1}
         // spaceBetween={8}
         loop={true}
         autoplay={{
-          delay: 2000,
+          delay: 4000,
           disableOnInteraction: false,
         }}
         className="mySwiper pb-5"

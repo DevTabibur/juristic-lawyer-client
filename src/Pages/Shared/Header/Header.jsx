@@ -11,7 +11,7 @@ const Header = () => {
       <Navbar  className="py-2 shadow" collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
 
-          <Navbar.Brand href="/home">
+          <Navbar.Brand as={Link} to="/">
               <div className="logo-div">
                   <img src={juristicLogo} alt="site__logo" />
               </div>
