@@ -1,15 +1,96 @@
-import React from "react";
+// @ts-nocheck
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import GoogleLogo from "../../Assets/Icons/google (1).svg";
+import auth from "../../Firebase/Firebase.init";
 
 const Register = () => {
-  const googleAuth = () => {
-    alert();
-  };
-  const handleFormSubmit = (e) => {
+  const [userInfo, setUserInfo] = useState({
+    email: "",
+    password: "",
+    confirmPass: "",
+});
+const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    general: "",
+});
+
+const [showPass, setShowPass] = useState(false);
+
+const [createUserWithEmailAndPassword, user, loading, hookError] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+const handleEmailChange = (e) => {
+    const emailRegex = /\S+@\S+\.\S+/;
+    const validEmail = emailRegex.test(e.target.value);
+
+    if (validEmail) {
+        setUserInfo({ ...userInfo, email: e.target.value });
+        setErrors({ ...errors, email: "" });
+    } else {
+        setErrors({ ...errors, email: "Invalid email" });
+        setUserInfo({ ...userInfo, email: "" });
+    }
+
+    // setEmail(e.target.value);
+};
+const handlePasswordChange = (e) => {
+    const passwordRegex = /.{6,}/;
+    const validPassword = passwordRegex.test(e.target.value);
+
+    if (validPassword) {
+        setUserInfo({ ...userInfo, password: e.target.value });
+        setErrors({ ...errors, password: "" });
+    } else {
+        setErrors({ ...errors, password: "Minimum 6 characters!" });
+        setUserInfo({ ...userInfo, password: "" });
+    }
+};
+
+const handleConfirmPasswordChange = (e) => {
+    if (e.target.value === userInfo.password) {
+        setUserInfo({ ...userInfo, confirmPass: e.target.value });
+        setErrors({ ...errors, password: "" });
+    } else {
+        setErrors({ ...errors, password: "Password's don't match" });
+        setUserInfo({ ...userInfo, confirmPass: "" });
+    }
+};
+
+const handleLogin = (e) => {
     e.preventDefault();
-  };
+    console.log(userInfo);
+    createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+};
+
+useEffect(() => {
+    if (hookError) {
+        switch (hookError?.code) {
+            case "auth/invalid-email":
+                toast("Invalid email provided, please provide a valid email");
+                break;
+            case "auth/invalid-password":
+                toast("Wrong password. Intruder!!");
+                break;
+            default:
+                toast("something went wrong");
+        }
+    }
+}, [hookError]);
+
+const navigate = useNavigate();
+const location = useLocation();
+const from = location.state?.from?.pathname || "/";
+
+useEffect(() => {
+    if (user) {
+        navigate(from);
+    }
+}, [user]);
 
   return (
     <>
@@ -32,7 +113,7 @@ const Register = () => {
                   Register <span className="title-2">Form</span>
                 </h2>
 
-                <Form onSubmit={handleFormSubmit}>
+                <Form>
 
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
@@ -58,25 +139,13 @@ const Register = () => {
 
                   <div className="my-3 d-flex justify-content-center form-bottom-text">
                     <h6 className="text-dark ">
-                      New to Juristic?{" "}
-                      <Link to="/register"> Create an Account</Link>
+                      Already have an Account?{" "}
+                      <Link to="/login"> Please Login!</Link>
                     </h6>
                   </div>
 
-                  <div className="or-text d-flex align-items-center justify-content-center">
-                    <span>--------</span>
-                    <h6 className="mt-2 mx-4">
-                      <span>OR</span>
-                    </h6>
-                    <span>--------</span>
-                  </div>
+                  
 
-                  <div className="logo-wrapper w-100">
-                    <button className="google-auth" onClick={googleAuth}>
-                      <img src={GoogleLogo} alt="google__logo" />
-                      <p> Continue with Google </p>
-                    </button>
-                  </div>
                 </Form>
               </div>
             </Col>

@@ -38,7 +38,6 @@ const Blog = () => {
 };
 
 const ShowBlog = ({ blog }) => {
-  console.log("blog", blog);
   return (
     <>
       <Col md={12} sm={12}>

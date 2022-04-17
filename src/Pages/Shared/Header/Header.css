@@ -14,7 +14,9 @@
 .header .menu-link{
     color: #c8b38b;
 }
-.menu-link-btn{
+.header .sign-out-btn{
     background: none;
     border: none;
+    color: #b1b1b1e6;
+
 }

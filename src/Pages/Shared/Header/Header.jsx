@@ -10,7 +10,7 @@ import { signOut } from "firebase/auth";
 const Header = () => {
   const [user] = useAuthState(auth);
 
-  console.log("home", user);
+
 
   return (
     <div className="header">
@@ -45,7 +45,7 @@ const Header = () => {
                 CHECKOUT
               </Nav.Link>
               {user ? (
-                <button  onClick={() => signOut(auth)}>LOGOUT</button>
+                <button className="sign-out-btn"  onClick={() => signOut(auth)}>LOGOUT</button>
               ) : (
                 <Nav.Link className="menu-link" as={Link} to="/login">
                   LOGIN

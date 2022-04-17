@@ -151,6 +151,7 @@ const Login = () => {
                       <p className="error-text">{errors.password}</p>
                     )}
                   </Form.Group>
+
                   <Button type="submit" className="w-100 d-block login-btn">
                     LOGIN
                   </Button>
