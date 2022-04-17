@@ -1,9 +1,18 @@
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import './Blog.css';
 
 const Blog = () => {
   return (
-    <div>Blog</div>
+    <>
+      <Container>
+        <Row>
+          <Col>
+            <h2>Blog page</h2>
+          </Col>
+        </Row>
+      </Container>
+    </>
   )
 }
 

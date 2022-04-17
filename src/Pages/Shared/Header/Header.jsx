@@ -2,11 +2,12 @@ import React from "react";
 import "./Header.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import juristicLogo from '../../../Assets/Images/logo (1).png';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+
   return (
-    <div className="header">
+    <div className="header" >
       <Navbar  className="py-2 shadow" collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
 
