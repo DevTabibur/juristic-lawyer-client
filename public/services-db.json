@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "icon" : "<GiSkills/>",
         "title": "Skilled Attorneys",
         "description" : "lorem20"
     },

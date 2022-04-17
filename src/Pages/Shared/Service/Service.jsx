@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./Service.css";
 // import AuthorImg from "../../../Assets/Images/ceo-img.jpg";
 import { FaBalanceScale } from "react-icons/fa";
-import {MdOutlineFamilyRestroom, MdPersonalInjury, MdAddBusiness,  MdCastForEducation} from 'react-icons/md';
-import {GiThink} from 'react-icons/gi';
-import {SiHomeassistantcommunitystore} from 'react-icons/si';
+import {GiThink, GiSkills} from 'react-icons/gi';
+import {ImHammer2} from 'react-icons/im';
+import { Link } from "react-router-dom";
 
 
 const Service = () => {
+  const [services, setServices] = useState([]);
+
+  useEffect(() =>{
+    fetch("services-db.json")
+    .then(res=> res.json())
+    .then(data => setServices(data))
+  }, [])
+
   return (
     <>
-      <div className="service-section py-4">
+      <div className="service-section py-5">
       <Container>
         <Row>
           <Col md={5} className="m-0 p-0">
@@ -54,18 +62,56 @@ const Service = () => {
       </Container>
     </div>
 
-    <div className="service-bottom-section">
+    <div className="service-bottom-section py-4">
       <Container>
         <Row>
-          <Col>11</Col>
-          <Col>22</Col>
-          <Col>33</Col>
-          <Col>44</Col>
+
+        <Col lg={3} sm={6}>
+          <div className="first-column">
+            <h4>Some few steps that you need to get the best services from Me</h4>
+            <Link className="contact-btn shadow-lg" to="/checkout">Free Consultation</Link>
+          </div>
+        </Col>
+
+        <Col lg={3} sm={6}>
+          <div className="feature-grid">
+          <GiSkills className="skill-icon"/>
+            <h3>Skilled Attorneys</h3>
+            <p>Muff that covered the whole of her lower arm towards the viewer gregor then turned to look out the window at the dull</p>
+            <Link className="contact-btn mt-4 shadow-lg" to="/checkout">Contact With Me</Link>
+          </div>
+        </Col>
+
+        <Col lg={3} sm={6}>
+          <div className="feature-grid">
+          <FaBalanceScale className="skill-icon"/>
+            <h3>Legal Defence</h3>
+            <p>Muff that covered the whole of her lower arm towards the viewer gregor then turned to look out the window at the dull</p>
+            <Link className="contact-btn mt-4 shadow-lg" to="/checkout">Contact With Me</Link>
+          </div>
+        </Col>
+
+        <Col lg={3} sm={6}>
+          <div className="feature-grid">
+          <ImHammer2 className="skill-icon"/>
+            <h3>99% case win</h3>
+            <p>Muff that covered the whole of her lower arm towards the viewer gregor then turned to look out the window at the dull</p>
+            <Link className="contact-btn mt-4 shadow-lg" to="/checkout">Contact With Me</Link>
+          </div>
+        </Col>
+
+        
+
         </Row>
       </Container>
     </div>
     </>
   );
 };
+
+
+
+
+
 
 export default Service;
