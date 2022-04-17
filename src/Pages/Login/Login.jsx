@@ -1,58 +1,96 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import GoogleLogo from "../../Assets/Icons/google (1).svg";
+import auth from "../../Firebase/Firebase.init";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, hookError] =
+    useSignInWithEmailAndPassword(auth);
+
+  const [signInWithGoogle, user2, loading2, googleError] = useSignInWithGoogle(auth);
 
   const [userInfo, setUserInfo] = useState({
-    email : "",
-    password : ""
+    email: "",
+    password: "",
   });
 
   const [errors, setErrors] = useState({
-    email : "",
-    password : "",
-    general : ""
-  })
+    email: "",
+    password: "",
+    general: "",
+  });
 
-  const handleEmailChange = (e) =>{
+  const handleEmailChange = (e) => {
     const emailRegex = /\S+@\S+\.\S+/;
     const validEmail = emailRegex.test(e.target.value);
 
-    if(validEmail){
-      setUserInfo({...userInfo, email: e.target.value});
-      setErrors({...errors, email : ""});
-    }
-    else{
-      setErrors({...errors, email :"Invalid Email"})
-      setUserInfo({...userInfo, email: ""})
-    }
-  }
-
-  const handlePasswordChange = (e) =>{
-    const passwordRegex = /.{6,}/;
-    const validPassword = passwordRegex.test(e.target.value);
-
-    if(validPassword){
-      setUserInfo({...userInfo, password: e.target.value});
-      setErrors({...errors, password : ""});
-    }
-    else{
-      setErrors({...errors, password :"Minimum 6 characters!"})
-      setUserInfo({...userInfo, password: ""})
+    if (validEmail) {
+      setUserInfo({ ...userInfo, email: e.target.value });
+      setErrors({ ...errors, email: "" });
+    } else {
+      setErrors({ ...errors, email: "Invalid Email" });
+      setUserInfo({ ...userInfo, email: "" });
     }
   };
 
-  console.log(userInfo);
+  const handlePasswordChange = (e) => {
+    const passwordRegex = /.{6,}/;
+    const validPassword = passwordRegex.test(e.target.value);
+
+    if (validPassword) {
+      setUserInfo({ ...userInfo, password: e.target.value });
+      setErrors({ ...errors, password: "" });
+    } else {
+      setErrors({ ...errors, password: "Minimum 6 characters!" });
+      setUserInfo({ ...userInfo, password: "" });
+    }
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log("userInfo" , userInfo);
+    signInWithEmailAndPassword(userInfo.email, userInfo.password)
+  };
+
+  const navigate = useNavigate();
+       const location = useLocation();
+       const from = location.state?.from?.pathname || "/";
+
+       useEffect(() => {
+           if (user) {
+               navigate(from);
+           }
+       }, [user]);
+
+       useEffect(() => {
+        const error = hookError || googleError;
+        if(error){
+            switch(error?.code){
+                case "auth/invalid-email":
+                    toast("Invalid email provided, please provide a valid email");
+                    break;
+                
+                case "auth/invalid-password":
+                    toast("Wrong password. Intruder!!")
+                    break;
+                default:
+                    toast("something went wrong")
+            }
+        }
+    }, [hookError, googleError])
+
+
 
   const googleAuth = () => {
     alert();
   };
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-  };
+
 
   return (
     <>
@@ -74,13 +112,18 @@ const Login = () => {
                 <h2 className="title text-center my-2">
                   Login <span className="title-2">Form</span>
                 </h2>
-                <Form onSubmit={handleFormSubmit}>
-
+                <Form onSubmit={handleLogin}>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
 
-                    <Form.Control onBlur={handleEmailChange} type="email" placeholder="Enter email" />
-                    {errors?.email && <p className="error-text">{errors.email}</p>}
+                    <Form.Control
+                      onBlur={handleEmailChange}
+                      type="email"
+                      placeholder="Enter email"
+                    />
+                    {errors?.email && (
+                      <p className="error-text">{errors.email}</p>
+                    )}
 
                     <Form.Text className="text-muted">
                       We'll never share your email with anyone else.
@@ -90,10 +133,14 @@ const Login = () => {
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
 
-                    <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
-                    {errors?.password && <p className="error-text">{errors.password}</p>}
-
-
+                    <Form.Control
+                      onChange={handlePasswordChange}
+                      type="password"
+                      placeholder="Password"
+                    />
+                    {errors?.password && (
+                      <p className="error-text">{errors.password}</p>
+                    )}
                   </Form.Group>
                   <Button type="submit" className="w-100 d-block login-btn">
                     LOGIN
