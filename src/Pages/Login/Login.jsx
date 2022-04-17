@@ -1,10 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import GoogleLogo from "../../Assets/Icons/google (1).svg";
 
 const Login = () => {
+
+  const [userInfo, setUserInfo] = useState({
+    email : "",
+    password : ""
+  });
+
+  const [errors, setErrors] = useState({
+    email : "",
+    password : "",
+    general : ""
+  })
+
+  const handleEmailChange = (e) =>{
+    const emailRegex = /\S+@\S+\.\S+/;
+    const validEmail = emailRegex.test(e.target.value);
+
+    if(validEmail){
+      setUserInfo({...userInfo, email: e.target.value});
+      setErrors({...errors, email : ""});
+    }
+    else{
+      setErrors({...errors, email :"Invalid Email"})
+      setUserInfo({...userInfo, email: ""})
+    }
+  }
+
+  const handlePasswordChange = (e) =>{
+    const passwordRegex = /.{6,}/;
+    const validPassword = passwordRegex.test(e.target.value);
+
+    if(validPassword){
+      setUserInfo({...userInfo, password: e.target.value});
+      setErrors({...errors, password : ""});
+    }
+    else{
+      setErrors({...errors, password :"Minimum 6 characters!"})
+      setUserInfo({...userInfo, password: ""})
+    }
+  };
+
+  console.log(userInfo);
+
   const googleAuth = () => {
     alert();
   };
@@ -33,9 +75,13 @@ const Login = () => {
                   Login <span className="title-2">Form</span>
                 </h2>
                 <Form onSubmit={handleFormSubmit}>
+
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+
+                    <Form.Control onBlur={handleEmailChange} type="email" placeholder="Enter email" />
+                    {errors?.email && <p className="error-text">{errors.email}</p>}
+
                     <Form.Text className="text-muted">
                       We'll never share your email with anyone else.
                     </Form.Text>
@@ -43,7 +89,11 @@ const Login = () => {
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+
+                    <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
+                    {errors?.password && <p className="error-text">{errors.password}</p>}
+
+
                   </Form.Group>
                   <Button type="submit" className="w-100 d-block login-btn">
                     LOGIN

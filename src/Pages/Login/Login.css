@@ -70,3 +70,11 @@
   .google-auth p {
     margin-left: 10px;
   }
+  .error-text{
+    color: red;
+    margin: 5px 0;
+    font-weight: 600;
+  }
+  .error-text::before{
+    content: "❌  ";
+  }
