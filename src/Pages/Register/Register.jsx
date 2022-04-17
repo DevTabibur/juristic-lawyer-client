@@ -1,7 +1,13 @@
 // @ts-nocheck
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import './Register.css';
+import '../Login/Login.css'
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import GoogleLogo from "../../Assets/Icons/google (1).svg";
@@ -12,85 +18,85 @@ const Register = () => {
     email: "",
     password: "",
     confirmPass: "",
-});
-const [errors, setErrors] = useState({
+  });
+  const [errors, setErrors] = useState({
     email: "",
     password: "",
     general: "",
-});
+  });
 
-const [showPass, setShowPass] = useState(false);
+  const [showPass, setShowPass] = useState(false);
 
-const [createUserWithEmailAndPassword, user, loading, hookError] =
+  const [createUserWithEmailAndPassword, user, loading, hookError] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-const handleEmailChange = (e) => {
+  const handleEmailChange = (e) => {
     const emailRegex = /\S+@\S+\.\S+/;
     const validEmail = emailRegex.test(e.target.value);
 
     if (validEmail) {
-        setUserInfo({ ...userInfo, email: e.target.value });
-        setErrors({ ...errors, email: "" });
+      setUserInfo({ ...userInfo, email: e.target.value });
+      setErrors({ ...errors, email: "" });
     } else {
-        setErrors({ ...errors, email: "Invalid email" });
-        setUserInfo({ ...userInfo, email: "" });
+      setErrors({ ...errors, email: "Invalid email" });
+      setUserInfo({ ...userInfo, email: "" });
     }
 
     // setEmail(e.target.value);
-};
-const handlePasswordChange = (e) => {
+  };
+  const handlePasswordChange = (e) => {
     const passwordRegex = /.{6,}/;
     const validPassword = passwordRegex.test(e.target.value);
 
     if (validPassword) {
-        setUserInfo({ ...userInfo, password: e.target.value });
-        setErrors({ ...errors, password: "" });
+      setUserInfo({ ...userInfo, password: e.target.value });
+      setErrors({ ...errors, password: "" });
     } else {
-        setErrors({ ...errors, password: "Minimum 6 characters!" });
-        setUserInfo({ ...userInfo, password: "" });
+      setErrors({ ...errors, password: "Minimum 6 characters!" });
+      setUserInfo({ ...userInfo, password: "" });
     }
-};
+  };
 
-const handleConfirmPasswordChange = (e) => {
+  const handleConfirmPasswordChange = (e) => {
     if (e.target.value === userInfo.password) {
-        setUserInfo({ ...userInfo, confirmPass: e.target.value });
-        setErrors({ ...errors, password: "" });
+      setUserInfo({ ...userInfo, confirmPass: e.target.value });
+      setErrors({ ...errors, password: "" });
     } else {
-        setErrors({ ...errors, password: "Password's don't match" });
-        setUserInfo({ ...userInfo, confirmPass: "" });
+      setErrors({ ...errors, password: "Password's don't match" });
+      setUserInfo({ ...userInfo, confirmPass: "" });
     }
-};
+  };
 
-const handleLogin = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     console.log(userInfo);
     createUserWithEmailAndPassword(userInfo.email, userInfo.password);
-};
+  };
 
-useEffect(() => {
+  useEffect(() => {
     if (hookError) {
-        switch (hookError?.code) {
-            case "auth/invalid-email":
-                toast("Invalid email provided, please provide a valid email");
-                break;
-            case "auth/invalid-password":
-                toast("Wrong password. Intruder!!");
-                break;
-            default:
-                toast("something went wrong");
-        }
+      switch (hookError?.code) {
+        case "auth/invalid-email":
+          toast("Invalid email provided, please provide a valid email");
+          break;
+        case "auth/invalid-password":
+          toast("Wrong password. Intruder!!");
+          break;
+        default:
+          toast("something went wrong");
+      }
     }
-}, [hookError]);
+  }, [hookError]);
 
-const navigate = useNavigate();
-const location = useLocation();
-const from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
-useEffect(() => {
+  useEffect(() => {
     if (user) {
-        navigate(from);
+      navigate(from);
     }
-}, [user]);
+  }, [user]);
 
   return (
     <>
@@ -114,10 +120,15 @@ useEffect(() => {
                 </h2>
 
                 <Form>
-
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" required />
+                    <Form.Control
+                    onChange={handleEmailChange}
+                      type="email"
+                      placeholder="Enter email"
+                      required
+                    />
+                    {errors?.email && <p className="error-text">{errors.email}</p>}
                     <Form.Text className="text-muted">
                       We'll never share your email with anyone else.
                     </Form.Text>
@@ -125,12 +136,19 @@ useEffect(() => {
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type={showPass ? "text" : "password"} onChange={handlePasswordChange}  placeholder="Password" />
+                    <p className="absolute top-3 right-5" onClick={() => setShowPass(!showPass)}>🔥</p>
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="password" placeholder="Confirm Password" />
+                    <Form.Control
+                    onChange={handleConfirmPasswordChange}
+                      type="password"
+                      placeholder="Confirm Password"
+                    />
+                    {errors?.password && <p className="error-text">{errors.password}</p>}
+
                   </Form.Group>
 
                   <Button type="submit" className="w-100 d-block login-btn">
@@ -143,9 +161,6 @@ useEffect(() => {
                       <Link to="/login"> Please Login!</Link>
                     </h6>
                   </div>
-
-                  
-
                 </Form>
               </div>
             </Col>
