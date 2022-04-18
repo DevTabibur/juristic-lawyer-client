@@ -68,10 +68,10 @@ const Register = () => {
     }
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(userInfo.email, userInfo.password);
-    sendEmailVerification();
+    await sendEmailVerification();
   };
 
   useEffect(() => {
