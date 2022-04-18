@@ -101,13 +101,12 @@ const Login = () => {
   {
     navigate("/home")
   }
-// abc
 
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
   const resetPassword = async () => {
     const email = userInfo.email;
-    console.log("email", email);
+    // console.log("email", email);
     if (email) {
         await sendPasswordResetEmail(email);
         toast('Sent email');
