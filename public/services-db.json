@@ -3,21 +3,21 @@
         "id": 1,
         "title": "Criminal Law",
         "price": 500,
-        "description" : "lorem20",
+        "description" : "Criminal law, as distinguished from civil law, is a system of laws concerned with punishment of individuals who commit crimes...",
         "image" : "https://www.hjmattes.com/wp-content/uploads/2020/04/criminal-law.jpg"
     },
     {
         "id": 2,
         "title": "Personal Injury",
         "price": 300,
-        "description" : "lorem20",
+        "description" : "Personal injury law allows an injured person to file a civil lawsuit in court and get a legal remedy for all losses stemming from an accident or other incident.",
         "image":"https://cdn.pixabay.com/photo/2015/10/22/06/56/lawyers-1000803_960_720.jpg"
     },
     {
         "id": 3,
         "title": "Family Law",
         "price": 150,
-        "description" : "lorem20",
+        "description" : "Family law is a legal practice area that focuses on issues involving family relationships such as marriage, adoption, divorce, and child custody, among others.",
         "image":"https://diazlf.com/wp-content/uploads/elementor/thumbs/child-custody-1-pjpw8x7guupppqaaqqqabtop67byx2yns341m6kdrs.webp"
     }
 ]
