@@ -10,9 +10,9 @@ import GoogleMap from '../Shared/Google Map/GoogleMap';
 const Home = () => {
   return (
     <>
-      {/* <HeroBanner/>
+      <HeroBanner/>
       <Service/>
-      <Extra/> */}
+      <Extra/>
       <GoogleMap/>
     </>
   )
