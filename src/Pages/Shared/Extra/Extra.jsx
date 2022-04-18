@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+// @ts-nocheck
+import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./Extra.css";
 // import AuthorImg from "../../../Assets/Images/ceo-img.jpg";
@@ -13,7 +14,7 @@ const Extra = () => {
     <>
       <div className="service-section py-5">
         <Container>
-          <Row>
+          <Row className="d-flex justify-content-center align-items-center">
             <Col md={5} className="m-0 p-0">
               <div className="left-column">
                 <div className="inner-content">
@@ -39,9 +40,7 @@ const Extra = () => {
                     <span>What I'm expert at</span>
                     <h2>Legal Practice Areas</h2>
                     <p>
-                      Maecenas tempus, tellus eget condimentum rhoncus, sem quam
-                      semper libero, sit amet adipiscing sem neque sed ipsum.
-                      Nam quam nunc
+                      Banking and Debt Finance law, Criminal law, Personal injury Law, Charity Law, Corporate Law, Commercial Law, Construction Law, Employment Law, Environment Law etc..
                     </p>
                   </div>
                 </div>
@@ -70,8 +69,7 @@ const Extra = () => {
                 <GiSkills className="skill-icon" />
                 <h3>Skilled Attorneys</h3>
                 <p>
-                  Muff that covered the whole of her lower arm towards the
-                  viewer gregor then turned to look out the window at the dull
+                 I have a lot of attorneys skills including math knowledge, science knowledge, sports knowledge and many more..
                 </p>
                 <Link className="contact-btn mt-4 shadow-lg" to="/checkout">
                   Contact With Me
@@ -82,10 +80,9 @@ const Extra = () => {
             <Col lg={3} sm={6}>
               <div className="feature-grid">
                 <FaBalanceScale className="skill-icon" />
-                <h3>Legal Defence</h3>
+                <h3>Legal Defense</h3>
                 <p>
-                  Muff that covered the whole of her lower arm towards the
-                  viewer gregor then turned to look out the window at the dull
+                A defense can either allege a failure to state a claim, or affirm the existence of a claim and present additional..
                 </p>
                 <Link className="contact-btn mt-4 shadow-lg" to="/checkout">
                   Contact With Me
@@ -98,8 +95,7 @@ const Extra = () => {
                 <ImHammer2 className="skill-icon" />
                 <h3>99% case win</h3>
                 <p>
-                  Muff that covered the whole of her lower arm towards the
-                  viewer gregor then turned to look out the window at the dull
+                Briefly summarize the facts of the case. Facts are the “who, when, what, where, and why” of the case. Describe the..
                 </p>
                 <Link className="contact-btn mt-4 shadow-lg" to="/checkout">
                   Contact With Me

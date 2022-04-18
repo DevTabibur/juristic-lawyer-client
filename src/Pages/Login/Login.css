@@ -78,3 +78,8 @@
   .error-text::before{
     content: "❌  ";
   }
+  .pass-reset{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #77e0f3;
+  }

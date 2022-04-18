@@ -54,6 +54,7 @@
   padding: 110px 120px 44px 60px;
   border-radius: 0 10px 10px 0px;
 }
+
 .section-title-s2 {
   margin-bottom: 30px;
 }
@@ -236,4 +237,7 @@
   box-sizing: border-box;
   background-color: #262b3e;
   color: #fff;
+}
+.service-section .right-column .icons-side-info {
+  padding-bottom: 15px;
 }

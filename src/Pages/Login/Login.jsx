@@ -7,6 +7,7 @@ import GoogleLogo from "../../Assets/Icons/google (1).svg";
 import auth from "../../Firebase/Firebase.init";
 import {
   useAuthState,
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
@@ -16,6 +17,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 const Login = () => {
   
@@ -73,7 +75,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      navigate(from);
+      navigate(from, {replace: true});
     }
   }, [user]);
 
@@ -99,6 +101,20 @@ const Login = () => {
   {
     navigate("/home")
   }
+
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+  const resetPassword = async () => {
+    const email = userInfo.email;
+    console.log("email", email);
+    if (email) {
+        await sendPasswordResetEmail(email);
+        toast('Sent email');
+    }
+    else{
+        toast('please enter your email address');
+    }
+}
 
   return (
     <>
@@ -161,6 +177,12 @@ const Login = () => {
                     <h6 className="text-dark ">
                       New to Juristic?{" "}
                       <Link to="/register"> Create an Account</Link>
+                    </h6>
+                  </div>
+                  <div className="my-3 d-flex justify-content-center form-bottom-text">
+                    <h6 className="text-dark ">
+                      Forget Password?{" "}
+                      <span className="pass-reset" onClick={resetPassword}> Please Reset!</span>
                     </h6>
                   </div>
 

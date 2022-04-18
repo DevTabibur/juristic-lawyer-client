@@ -1,4 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+// @ts-nocheck
+
 import React from "react";
 import "./Footer.css";
 import "bootstrap/dist/css/bootstrap.min.css";
