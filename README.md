@@ -3,7 +3,7 @@
 [Live Website Link](https://juristic-4bf27.web.app/).
 
 ## Technologies
-1. React
+* React
 2. React Router
 3. Firebase
 4. React Bootstrap
