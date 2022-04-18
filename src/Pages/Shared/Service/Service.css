@@ -2,6 +2,10 @@
     position: relative;
     width: 100%;
     height: 450px;
+    transition: .4s;
+}
+.service-box:hover{
+  transform: skew(2px);
 }
 
 .service-box .service-box-imgDiv {

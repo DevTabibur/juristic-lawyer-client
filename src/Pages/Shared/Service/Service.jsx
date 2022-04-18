@@ -36,7 +36,7 @@ const ShowServices = ({ service }) => {
           <h3>{service.title}</h3>
           <h6>Price: ${service.price}</h6>
           <p>{service.description}</p>
-          <button className="check-out-btn" >Check Out</button>
+          <button onClick={()=>navigate("/checkout")} className="check-out-btn" >Check Out</button>
         </div>
       </Col>
     </>
