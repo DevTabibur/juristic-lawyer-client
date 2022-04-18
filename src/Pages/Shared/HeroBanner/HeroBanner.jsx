@@ -34,10 +34,10 @@ const HeroBanner = () => {
         slidesPerView={1}
         // spaceBetween={8}
         loop={true}
-        // autoplay={{
-        //   delay: 4000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
         className="mySwiper pb-5"
       >
         <SwiperSlide className="swiper-slider-parent">
