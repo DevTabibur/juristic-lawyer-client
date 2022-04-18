@@ -59,6 +59,7 @@
 .footer-bottom{
     background-color: #000;
     color: var(--white);
+    margin-bottom: -20px;
 }
 .copyright{
     color: #fff;
