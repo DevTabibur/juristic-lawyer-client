@@ -2,15 +2,24 @@
 
 [Live Website Link](https://juristic-4bf27.web.app/).
 
+## Website Features Provided
+* Lawyer
+* Criminal Law
+* Personal Injury Law
+* Business Law
+* Corporate Law
+* Family Law
+
+
 ## Technologies
 * React
-2. React Router
-3. Firebase
-4. React Bootstrap
-5. Swiper JS
-6. Google Font
-7. React Icon
-8. Protected Route
-9. React Firebase Hooks (Library)
-10. React Toastify
-11. React Spring
+* React Router
+* Firebase
+* React Bootstrap
+* Swiper JS
+* Google Font
+* React Icon
+* Protected Route
+* React Firebase Hooks (Library)
+* React Toastify
+* React Spring
