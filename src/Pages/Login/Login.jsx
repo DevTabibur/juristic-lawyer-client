@@ -20,7 +20,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { sendPasswordResetEmail } from "firebase/auth";
 
 const Login = () => {
-  
   const [signInWithEmailAndPassword, user, loading, hookError] =
     useSignInWithEmailAndPassword(auth);
 
@@ -73,34 +72,33 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
+  const [user1] = useAuthState(auth);
   useEffect(() => {
-    if (user) {
-      navigate(from, {replace: true});
+    if (user1) {
+      navigate(from, { replace: true });
     }
-  }, [user]);
+  }, [user1]);
 
   useEffect(() => {
     const error = hookError || googleError;
     if (error) {
       switch (error?.code) {
         case "auth/invalid-email":
-          toast("Invalid email provided, please provide a valid email");
+          toast.error("Invalid email provided, please provide a valid email", {
+            toastId: "InvalidEmail",
+          });
           break;
 
         case "auth/invalid-password":
-          toast("Wrong password. Intruder!!");
+          toast.error("Wrong password. Intruder!!", {
+            toastId: "InvalidEmail",
+          });
           break;
         default:
-          toast("something went wrong");
+          toast.error("something went wrong", { toastId: "InvalidEmail" });
       }
     }
   }, [hookError, googleError]);
-
-
-  if(googleUser)
-  {
-    navigate("/home")
-  }
 
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
@@ -108,13 +106,12 @@ const Login = () => {
     const email = userInfo.email;
     // console.log("email", email);
     if (email) {
-        await sendPasswordResetEmail(email);
-        toast('Sent email');
+      await sendPasswordResetEmail(email);
+      toast.success("Sent email");
+    } else {
+      toast("please enter your email address");
     }
-    else{
-        toast('please enter your email address');
-    }
-}
+  };
 
   return (
     <>
@@ -137,7 +134,7 @@ const Login = () => {
                   Login <span className="title-2">Form</span>
                 </h2>
                 <Form onSubmit={handleLogin}>
-                <ToastContainer/>
+                  <ToastContainer />
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
 
@@ -154,7 +151,6 @@ const Login = () => {
                       We'll never share your email with anyone else.
                     </Form.Text>
                   </Form.Group>
-
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
@@ -182,7 +178,10 @@ const Login = () => {
                   <div className="my-3 d-flex justify-content-center form-bottom-text">
                     <h6 className="text-dark ">
                       Forget Password?{" "}
-                      <span className="pass-reset" onClick={resetPassword}> Please Reset!</span>
+                      <span className="pass-reset" onClick={resetPassword}>
+                        {" "}
+                        Please Reset!
+                      </span>
                     </h6>
                   </div>
 
@@ -193,15 +192,16 @@ const Login = () => {
                     </h6>
                     <span>--------</span>
                   </div>
-
-                  
                 </Form>
                 <div className="logo-wrapper w-100">
-                    <button className="google-auth" onClick={() => signInWithGoogle()}>
-                      <img src={GoogleLogo} alt="google__logo" />
-                      <p> Continue with Google </p>
-                    </button>
-                  </div>
+                  <button
+                    className="google-auth"
+                    onClick={() => signInWithGoogle()}
+                  >
+                    <img src={GoogleLogo} alt="google__logo" />
+                    <p> Continue with Google </p>
+                  </button>
+                </div>
               </div>
             </Col>
             <Col></Col>

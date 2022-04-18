@@ -1,8 +1,8 @@
 // @ts-nocheck
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import './Register.css';
-import '../Login/Login.css'
+import "./Register.css";
+import "../Login/Login.css";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithEmailAndPassword,
@@ -78,13 +78,13 @@ const Register = () => {
     if (hookError) {
       switch (hookError?.code) {
         case "auth/invalid-email":
-          toast("Invalid email provided, please provide a valid email");
+          toast.error("Invalid email provided, please provide a valid email", {toastId: "InvalidEmail"});
           break;
         case "auth/invalid-password":
-          toast("Wrong password. Intruder!!");
+          toast.error("Wrong password. Intruder!!" ,{toastId: "InvalidEmail"});
           break;
         default:
-          toast("something went wrong");
+          toast.error("something went wrong",{toastId: "InvalidEmail"});
       }
     }
   }, [hookError]);
@@ -95,12 +95,9 @@ const Register = () => {
 
   useEffect(() => {
     if (user) {
-      navigate(from);
+      navigate(from, { replace: true });
     }
   }, [user]);
-
-
-
 
   return (
     <>
@@ -127,12 +124,14 @@ const Register = () => {
                   <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control
-                    onChange={handleEmailChange}
+                      onChange={handleEmailChange}
                       type="email"
                       placeholder="Enter email"
                       required
                     />
-                    {errors?.email && <p className="error-text">{errors.email}</p>}
+                    {errors?.email && (
+                      <p className="error-text">{errors.email}</p>
+                    )}
                     <Form.Text className="text-muted">
                       We'll never share your email with anyone else.
                     </Form.Text>
@@ -140,19 +139,29 @@ const Register = () => {
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type={showPass ? "text" : "password"} onChange={handlePasswordChange}  placeholder="Password" />
-                    <p className="absolute top-3 right-5" onClick={() => setShowPass(!showPass)}>🔥</p>
+                    <Form.Control
+                      type={showPass ? "text" : "password"}
+                      onChange={handlePasswordChange}
+                      placeholder="Password"
+                    />
+                    <p
+                      className="absolute top-3 right-5"
+                      onClick={() => setShowPass(!showPass)}
+                    >
+                      🔥
+                    </p>
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control
-                    onChange={handleConfirmPasswordChange}
+                      onChange={handleConfirmPasswordChange}
                       type="password"
                       placeholder="Confirm Password"
                     />
-                    {errors?.password && <p className="error-text">{errors.password}</p>}
-
+                    {errors?.password && (
+                      <p className="error-text">{errors.password}</p>
+                    )}
                   </Form.Group>
 
                   <Button type="submit" className="w-100 d-block login-btn">
