@@ -45,7 +45,7 @@ const HeroBanner = () => {
             <div className="slider-inner-info">
                 <h1 className="mb-3">Our Independence Make the Difference</h1>
                 <h4 className="mb-3">NATIONALLY ESTABLISHED. INTERNATIONALLY RECOGNIZED</h4>
-                <button className="slider-read-btn">FREE CONSULTATION</button>
+                <button onClick={()=>navigate("/checkout")} className="slider-read-btn">FREE CONSULTATION</button>
             </div>
         </SwiperSlide>
 

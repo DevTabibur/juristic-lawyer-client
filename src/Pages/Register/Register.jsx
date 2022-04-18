@@ -12,6 +12,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import GoogleLogo from "../../Assets/Icons/google (1).svg";
 import auth from "../../Firebase/Firebase.init";
+import { sendEmailVerification } from "firebase/auth";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
@@ -71,6 +72,7 @@ const Register = () => {
     e.preventDefault();
     console.log(userInfo);
     createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+    sendEmailVerification();
   };
 
   useEffect(() => {
@@ -97,6 +99,9 @@ const Register = () => {
       navigate(from);
     }
   }, [user]);
+
+
+
 
   return (
     <>
