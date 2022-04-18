@@ -14,7 +14,7 @@ const Service = () => {
   return (
     <>
       <Container className="py-5">
-        <Row className="g-5">
+        <Row className="">
           {services.map((service) => (
             <ShowServices key={service.id} service={service} />
           ))}
@@ -28,7 +28,7 @@ const ShowServices = ({ service }) => {
   const navigate = useNavigate();
   return (
     <>
-      <Col md={4} className="shadow rounded">
+      <Col md={4} className="shadow rounded parent-col g-3">
         <div className="service-box">
           <div className="service-box-imgDiv">
             <img src={service.image} alt="service__img" />

@@ -9,9 +9,9 @@ import Service from '../Shared/Service/Service';
 const Home = () => {
   return (
     <>
-      <HeroBanner/>
-      {/* <Service/>
-      <Extra/> */}
+      {/* <HeroBanner/> */}
+      <Service/>
+      {/* <Extra/> */}
     </>
   )
 }

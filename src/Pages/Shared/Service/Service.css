@@ -4,9 +4,6 @@
   height: 530px;
   transition: .4s;
 }
-.service-box:hover{
-  transform: skewY(20px);
-}
 
 .service-box .service-box-imgDiv {
   position: relative;
